@@ -49,7 +49,7 @@ public class TesteGN
 {
 	public static void main(String[] args)
 	{
-		//get the token received by POST and set some variable with this value.
+		//get the token received by POST and set some variable with it's value.
 		
 		HashMap<String, String> params = new HashMap<>();
 		params.put("token", token)
@@ -77,10 +77,10 @@ Response:
   "data": [{
     "id": 1,
     "type": "charge",
-    "custom_id": None,
+    "custom_id": "13",
     "status": {
       "current": "new",
-      "previous": None
+      "previous": ""
     },
     "identifiers": {
       "charge_id": 1002
@@ -88,7 +88,7 @@ Response:
   }, {
     "id": 2,
     "type": "charge",
-    "custom_id": None,
+    "custom_id": "13",
     "status": {
       "current": "waiting",
       "previous": "new"
@@ -99,7 +99,7 @@ Response:
   }, {
     "id": 3,
     "type": "charge",
-    "custom_id": None,
+    "custom_id": "13",
     "status": {
       "current": "paid",
       "previous": "waiting"
@@ -111,7 +111,7 @@ Response:
   }, {
     "id": 4,
     "type": "charge",
-    "custom_id": None,
+    "custom_id": "13",
     "status": {
       "current": "refunded",
       "previous": "paid"

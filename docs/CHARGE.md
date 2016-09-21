@@ -143,7 +143,7 @@ Check out the response:
     "charge_id": 1253,
     "total": 3000,
     "status": "new",
-    "custom_id": None,
+    "custom_id": "Product 0001",
     "created_at": "2016-05-18 14:56:39"
   }
 }

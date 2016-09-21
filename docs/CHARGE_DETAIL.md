@@ -63,7 +63,7 @@ As response, you will receive all the information about the charge (including if
     "subscription_id": 12,
     "total": 5000,
     "status": "new",
-    "custom_id": None,
+    "custom_id": "Product 0001",
     "created_at": "2015-05-14",
     "notification_url": "http://yourdomain.com",
     "items": [

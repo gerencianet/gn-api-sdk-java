@@ -84,7 +84,7 @@ If everything went well, the response will come with barcode, link to banking bi
     "plan": {
       "id": 1000,
       "interval": 2,
-      "repeats": None
+      "repeats": 0
     },
     "charge": {
       "id": 1053,
@@ -164,7 +164,7 @@ If everything went well, the response will come with total value:
     "plan": {
       "id": 1000,
       "interval": 2,
-      "repeats": None
+      "repeats": 0
     },
     "charge": {
       "id": 1053,

@@ -8,6 +8,8 @@ For more informations about parameters and values, please refer to [Gerencianet]
 
 [![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-java.svg?branch=master)](https://travis-ci.org/gerencianet/gn-api-sdk-java)
 
+[![Coverage Status](https://coveralls.io/repos/github/gerencianet/gn-api-sdk-java/badge.svg?branch=master)](https://coveralls.io/github/gerencianet/gn-api-sdk-java?branch=master)
+
 ## Requirements
 * Java >= 8.0
 
@@ -37,7 +39,6 @@ JSONObject options = new JSONObject();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
 options.put("sandbox", true);
-];
 
 Gerencianet gn = new Gerencianet($options);
 ```
@@ -48,7 +49,6 @@ Map<String, Object> options = new HashMap<String, Object>();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
 options.put("sandbox", true);
-];
 
 Gerencianet gn = new Gerencianet($options);
 ```
@@ -60,7 +60,6 @@ JSONObject options = new JSONObject();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
 options.put("sandbox", false);
-];
 
 Gerencianet gn = new Gerencianet($options);
 ```
@@ -71,7 +70,6 @@ Map<String, Object> options = new HashMap<String, Object>();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
 options.put("sandbox", false);
-];
 
 Gerencianet gn = new Gerencianet($options);
 ```
@@ -81,7 +79,7 @@ Gerencianet gn = new Gerencianet($options);
 To run the test suite with coverage:
 
 ```
-./mvn jacocoTestReport
+mvn clean test jacoco:report
 ```
 
 ## Additional Documentation

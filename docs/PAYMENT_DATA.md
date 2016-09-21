@@ -55,73 +55,73 @@ And the response:
     "installments": [
       {
         "installment": 1,
-        "has_interest": False,
+        "has_interest": true,
         "value": 5150,
         "currency": "51,50"
       },
       {
         "installment": 2,
-        "has_interest": True,
+        "has_interest": true,
         "value": 2679,
         "currency": "26,79"
       },
       {
         "installment": 3,
-        "has_interest": True,
+        "has_interest": true,
         "value": 1821,
         "currency": "18,21"
       },
       {
         "installment": 4,
-        "has_interest": True,
+        "has_interest": true,
         "value": 1393,
         "currency": "13,93"
       },
       {
         "installment": 5,
-        "has_interest": True,
+        "has_interest": true,
         "value": 1137,
         "currency": "11,37"
       },
       {
         "installment": 6,
-        "has_interest": True,
+        "has_interest": true,
         "value": 966,
         "currency": "9,66"
       },
       {
         "installment": 7,
-        "has_interest": True,
+        "has_interest": true,
         "value": 845,
         "currency": "8,45"
       },
       {
         "installment": 8,
-        "has_interest": True,
+        "has_interest": true,
         "value": 754,
         "currency": "7,54"
       },
       {
         "installment": 9,
-        "has_interest": True,
+        "has_interest": true,
         "value": 683,
         "currency": "6,83"
       },
       {
         "installment": 10,
-        "has_interest": True,
+        "has_interest": true,
         "value": 627,
         "currency": "6,27"
       },
       {
         "installment": 11,
-        "has_interest": True,
+        "has_interest": true,
         "value": 581,
         "currency": "5,81"
       },
       {
         "installment": 12,
-        "has_interest": True,
+        "has_interest": true,
         "value": 544,
         "currency": "5,44"
       }

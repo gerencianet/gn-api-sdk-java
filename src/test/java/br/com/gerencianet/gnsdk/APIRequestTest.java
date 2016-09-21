@@ -98,7 +98,6 @@ public class APIRequestTest {
 		
 	}
 	
-
 	@Test
 	public void test() throws Exception{
 		JSONObject endpoints = new JSONObject();

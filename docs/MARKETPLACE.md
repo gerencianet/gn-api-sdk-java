@@ -101,7 +101,7 @@ The response is the same as usual:
     "charge_id": 1039,
     "total": 5000,
     "status": "new",
-    "custom_id": None,
+    "custom_id": "m1",
     "created_at": "2016-05-18 14:56:39"
   }
 }

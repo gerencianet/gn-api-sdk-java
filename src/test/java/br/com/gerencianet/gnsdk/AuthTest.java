@@ -87,9 +87,7 @@ public class AuthTest {
 			verify(requester, times(1)).addHeader("Authorization", "Basic " + authenticator.getAuthCredentials());;
 			verify(requester, times(1)).send(authenticator.getAuthBody());
 			Assert.assertTrue(authenticator.getAccessToken().equals("token"));
-			//Date expectedAfter = new Date(new Date().getTime() + 500);
 			Assert.assertTrue(authenticator.getExpires().compareTo(expectedBefore) > 0);
-			//Assert.assertTrue(authenticator.getExpires().compareTo(expectedAfter) < 0);
 			Assert.assertTrue(authenticator.getTokenType().equals("bearer"));
 		} catch (Exception e) {
 			e.printStackTrace();

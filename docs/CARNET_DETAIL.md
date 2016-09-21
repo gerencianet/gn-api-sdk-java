@@ -60,7 +60,6 @@ catch (Exception e) {
 As response, you will receive all information about the carnet:
 
 ```json
-
 {
   "code": 200,
   "data": {
@@ -75,7 +74,7 @@ As response, you will receive all information about the carnet:
         "parcel": "1",
         "status": "waiting",
         "value": 2000,
-        "expire_at": '2020-12-12',
+        "expire_at": "2020-12-12",
         "url":"https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CL-28333-61428-LEENA9/28333-61428-LEENA9",
         "barcode": "00190.00009 01523.894002 00061.428181 1 64780000002000"
       }, {
@@ -83,7 +82,7 @@ As response, you will receive all information about the carnet:
         "parcel": "2",
         "status": "waiting",
         "value": 2000,
-        "expire_at": '2021-01-12',
+        "expire_at": "2021-01-12",
         "url":"https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CL-28333-61428-LEENA9/28333-61429-CORZE4",
         "barcode": "00190.00009 01523.894002 00061.428181 8 65090000002000"
       }, {
@@ -91,7 +90,7 @@ As response, you will receive all information about the carnet:
         "parcel": "3",
         "status": "waiting",
         "value": 2000,
-        "expire_at": '2021-02-12',
+        "expire_at": "2021-02-12",
         "url":"https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CL-28333-61428-LEENA9/28333-61430-HIRRA4",
         "barcode": "00190.00009 01523.894002 00061.428181 7 65400000002000"
       }, {
@@ -99,7 +98,7 @@ As response, you will receive all information about the carnet:
         "parcel": "4",
         "status": "waiting",
         "value": 2000,
-        "expire_at": '2021-03-12',
+        "expire_at": "2021-03-12",
         "url":"https://visualizacao.gerencianet.com.br/emissao/28333_2385_ZEMAL5/A5CL-28333-61428-LEENA9/28333-61431-HIRRA4",
         "barcode": "00190.00009 01523.894002 00061.428181 5 65400000002000"
       }
