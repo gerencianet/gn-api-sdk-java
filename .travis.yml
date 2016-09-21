@@ -4,6 +4,6 @@ install:
 script:
   - mvn clean test jacoco:report
 after_success:
-  - mvn coveralls:report
+  - mvn coveralls:jacoco
 jdk:
   - oraclejdk8
