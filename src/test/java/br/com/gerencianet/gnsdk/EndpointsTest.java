@@ -4,15 +4,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -73,7 +70,7 @@ public class EndpointsTest {
 		endpoints = new Endpoints(config, apiRequester);
 		JSONObject body = mock(JSONObject.class);
 		endpoints.call("charge", new HashMap<String, String>(), body);
-		verify(apiRequester, times(1)).send(body);
+		verify(apiRequester, times(1)).send();
 	}
 	
 	@Test
@@ -89,28 +86,24 @@ public class EndpointsTest {
 		
 		ep.put("authorize", authorize);
 		ep.put("charge", charge);
+		
+		Map<String, Object> body = new HashMap<String,Object>();
+		body.put("item", 1);
+		JSONObject expectedResponse = new JSONObject("{\"status\": 200}");
+		
 		JSONObject options = mock(JSONObject.class);
 		when(options.has("clientId")).thenReturn(true);
 		when(options.has("clientSecret")).thenReturn(true);
 		when(options.getString("baseUri")).thenReturn("https://sandbox.gerencianet.com.br");
 		Mockito.when(config.getEndpoints()).thenReturn(ep);
 		Mockito.when(config.getOptions()).thenReturn(options);
+		when(apiRequester.send()).thenReturn(expectedResponse);
 		
 		endpoints = new Endpoints(config, apiRequester);
+		HashMap<String, Object> response = (HashMap<String, Object>) endpoints.call("charge", new HashMap<String, String>(), body);
 		
-		HashMap<String, Object> body= new HashMap<String, Object>();
-		body.put("id", 1);
-		JSONObject jsonBody = (JSONObject) JSONObject.wrap(body);
-		ArgumentCaptor<JSONObject> bodyCaptor = ArgumentCaptor.forClass(JSONObject.class);
-
-		try{
-			endpoints.call("charge", new HashMap<String, String>(), body);
-		}catch(NullPointerException e){
-			verify(apiRequester).send(bodyCaptor.capture());
-			JSONObject jsonBodyExpected = bodyCaptor.getValue();
-			Assert.assertTrue(jsonBodyExpected.has("id") && jsonBody.has("id"));
-			Assert.assertTrue(jsonBodyExpected.getInt("id") == jsonBody.getInt("id"));
-		}
+		Assert.assertTrue(response.containsKey("status"));
+		Assert.assertTrue(response.get("status").equals(200));
 	}
 	
 	@Test(expected=Exception.class)
@@ -208,6 +201,7 @@ public class EndpointsTest {
 		
 		ep.put("authorize", authorize);
 		ep.put("charge", charge);
+		
 		JSONObject options = mock(JSONObject.class);
 		when(options.has("clientId")).thenReturn(true);
 		when(options.has("clientSecret")).thenReturn(true);
@@ -216,7 +210,7 @@ public class EndpointsTest {
 		Mockito.when(config.getOptions()).thenReturn(options);
 		JSONObject body = mock(JSONObject.class);
 		
-		endpoints = new Endpoints(config);
+		endpoints = new Endpoints(config, apiRequester);
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("id", "1");
 		params.put("token", "45646546894621");

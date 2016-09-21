@@ -20,9 +20,10 @@ public class APIRequest {
 	private Request requester;
 	private Auth authenticator;
 	private String  route;
+	private JSONObject body;
 	
 	
-	public APIRequest(String method, String route, Config config) throws Exception {
+	public APIRequest(String method, String route, JSONObject body, Config config) throws Exception {
 		this.route = route;
 		String authenticateRoute = config.getEndpoints().getJSONObject("authorize").getString("route");
 		String authenticateMethod = config.getEndpoints().getJSONObject("authorize").getString("method");
@@ -33,14 +34,16 @@ public class APIRequest {
 		HttpURLConnection client = (HttpURLConnection) link.openConnection();
 		
 		this.requester = new Request(method, client);
+		this.body = body;
 	}
 	
-	public APIRequest(Auth auth, Request request){
+	public APIRequest(Auth auth, Request request, JSONObject body){
 		this.authenticator = auth;
 		this.requester = request;
+		this.body = body;
 	}
 	
-	public JSONObject send(JSONObject body) throws AuthorizationException, GerencianetException, IOException{
+	public JSONObject send() throws AuthorizationException, GerencianetException, IOException{
 		Date expiredDate = this.authenticator.getExpires();
 		if (this.authenticator.getExpires() == null || expiredDate.compareTo(new Date()) <= 0) {
 			this.authenticator.authorize(); 
@@ -48,7 +51,7 @@ public class APIRequest {
 		
 		this.requester.addHeader("Authorization", "Bearer " + this.authenticator.getAccessToken());
         try {
-			return this.requester.send(body);
+			return this.requester.send(this.body);
 		} catch (AuthorizationException e) {
 			this.authenticator.authorize();
 			return this.requester.send(body);
@@ -61,5 +64,9 @@ public class APIRequest {
 	
 	public String getRoute() {
 		return route;
+	}
+	
+	public JSONObject getBody() {
+		return body;
 	}
 }

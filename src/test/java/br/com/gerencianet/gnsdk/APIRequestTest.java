@@ -49,9 +49,12 @@ public class APIRequestTest {
 		when(authenticator.getExpires()).thenReturn(new Date(new Date().getTime() + 500));
 		JSONObject options = new JSONObject();
 		options.put("baseUri", "https://sandbox.gerencianet.com.br");
+		JSONObject body = mock(JSONObject.class);
+		
 		when(config.getOptions()).thenReturn(options);
-		apiRequester = new APIRequest(authenticator, requester);
-		apiRequester.send(body); // "post", "/v1/charge", 
+		
+		apiRequester = new APIRequest(authenticator, requester, body);
+		apiRequester.send(); // "post", "/v1/charge", 
 		verify(requester, times(1)).send(body);
 		
 	}
@@ -61,9 +64,12 @@ public class APIRequestTest {
 		when(authenticator.getExpires()).thenReturn(new Date());
 		JSONObject options = new JSONObject();
 		options.put("baseUri", "https://sandbox.gerencianet.com.br");
+		JSONObject body = mock(JSONObject.class);
+		
 		when(config.getOptions()).thenReturn(options);
-		apiRequester = new APIRequest(authenticator, requester);
-		apiRequester.send(body);
+		
+		apiRequester = new APIRequest(authenticator, requester, body);
+		apiRequester.send();
 		verify(authenticator, times(1)).authorize();
 		verify(requester, times(1)).send(body);
 	}
@@ -73,9 +79,11 @@ public class APIRequestTest {
 		when(authenticator.getExpires()).thenReturn(null);
 		JSONObject options = new JSONObject();
 		options.put("baseUri", "https://sandbox.gerencianet.com.br");
+		JSONObject body = mock(JSONObject.class);
 		when(config.getOptions()).thenReturn(options);
-		apiRequester = new APIRequest(authenticator, requester);
-		apiRequester.send(body);
+		
+		apiRequester = new APIRequest(authenticator, requester, body);
+		apiRequester.send();
 		verify(authenticator, times(1)).authorize();
 		verify(requester, times(1)).send(body);
 	}
@@ -83,13 +91,15 @@ public class APIRequestTest {
 	@Test
 	public void shouldReauthorizeWhenServerRespondsWithAuthError() throws GerencianetException, IOException, AuthorizationException{
 		JSONObject success = new JSONObject("{status: 200}");
+		JSONObject body = mock(JSONObject.class);
+		
 		when(authenticator.getExpires()).thenReturn(new Date(new Date().getTime() + 500));
 		when(requester.send(body)).thenThrow(new AuthorizationException()).thenReturn(success);
 		
 		JSONObject response = new JSONObject();
-		apiRequester = new APIRequest(authenticator, requester);
+		apiRequester = new APIRequest(authenticator, requester, body);
 		try{
-			response = apiRequester.send(body);
+			response = apiRequester.send();
 		}catch(AuthorizationException e){
 			verify(authenticator, times(1)).authorize();
 			verify(requester, times(2)).send(body);
@@ -99,12 +109,13 @@ public class APIRequestTest {
 	}
 	
 	@Test
-	public void test() throws Exception{
+	public void shouldSetPropertiesCorrectly() throws Exception{
 		JSONObject endpoints = new JSONObject();
 		JSONObject authorize = new JSONObject();
 		authorize.put("route", "/v1/authorize");
 		authorize.put("method", "post");
 		endpoints.put("authorize", authorize);
+		JSONObject body = new JSONObject("{\"item\": 12}");
 		
 		JSONObject credentials = mock(JSONObject.class);
 		when(credentials.has("clientId")).thenReturn(true);
@@ -112,8 +123,10 @@ public class APIRequestTest {
 		when(credentials.getString("baseUri")).thenReturn("https://sandbox.gerencianet.com.br");
 		when(config.getEndpoints()).thenReturn(endpoints);
 		when(config.getOptions()).thenReturn(credentials);
-		apiRequester = new APIRequest("post", "/v1/charge", config);
+		apiRequester = new APIRequest("post", "/v1/charge", body, config);
 		Assert.assertTrue(apiRequester.getRequester() != null);
+		Assert.assertTrue(apiRequester.getBody().has("item"));
+		Assert.assertTrue(apiRequester.getBody().getInt("item") == 12);
 	}
 	
 }

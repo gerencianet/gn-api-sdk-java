@@ -57,27 +57,29 @@ public class Endpoints {
 		return requester;
 	}
 	
-	public JSONObject call(String method, Map<String, String> params, JSONObject body) throws Exception{
-		return this.kernelCall(method, params, body);
+	public JSONObject call(String endpoint, Map<String, String> params, JSONObject body) throws Exception{
+		return kernelCall(endpoint, params, body);
 	}
 	
-	public Map<String, Object> call(String method, Map<String, String> params, Map<String, Object> body) throws Exception{		
-		JSONObject response= kernelCall(method, params, (JSONObject) JSONObject.wrap(body));
+	public Map<String, Object> call(String endpoint, Map<String, String> params, Map<String, Object> mapBody) throws Exception{
+		JSONObject body = (JSONObject) JSONObject.wrap(mapBody);
+		JSONObject response = kernelCall(endpoint, params, body);
 		return response.toMap();
 	}
 	
-	private JSONObject kernelCall(String method, Map<String, String> params, JSONObject body) throws Exception{
+	private JSONObject kernelCall(String endpointName, Map<String, String> params, JSONObject body) throws Exception{
 		JSONObject endpoints = this.config.getEndpoints();
-		if(!endpoints.has(method))
+		if(!endpoints.has(endpointName))
 			throw new Exception("nonexistent endpoint");
 		
-		JSONObject endpoint = (JSONObject)endpoints.get(method);
+		JSONObject endpoint = (JSONObject)endpoints.get(endpointName);
 		String route = getRoute(endpoint, params);
 		route += getQueryString(params);
 		if(this.requester == null)
-			requester = new APIRequest(endpoint.get("method").toString(), route, this.config);
-		JSONObject response = this.requester.send(body);
+			requester = new APIRequest(endpoint.get("method").toString(), route, body, this.config);
+		JSONObject response = this.requester.send();
 		this.requester = null;
+		
 		return response;
 	}
 	
