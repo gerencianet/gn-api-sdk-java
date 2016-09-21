@@ -1,9 +1,9 @@
 language: java
 install:
- - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
- - mvn clean test jacoco:report
-jdk:
- - oraclejdk8
+  - mvn clean test jacoco:report
 after_success:
   - mvn coveralls:report
+jdk:
+  - oraclejdk8
