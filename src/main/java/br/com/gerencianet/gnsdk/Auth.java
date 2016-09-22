@@ -3,12 +3,9 @@ package br.com.gerencianet.gnsdk;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Base64;
-import java.util.Base64.Encoder;
 import java.util.Date;
-
+import javax.xml.bind.DatatypeConverter;
 import org.json.JSONObject;
-
 import br.com.gerencianet.gnsdk.exceptions.AuthorizationException;
 import br.com.gerencianet.gnsdk.exceptions.GerencianetException;
 
@@ -42,8 +39,7 @@ public class Auth {
 		authBody.put("grant_type", "client_credentials");
 		
 		String auth = credentials.getString("clientId") + ":" + credentials.getString("clientSecret");
-		Encoder encode = Base64.getEncoder();
-		this.authCredentials = encode.encodeToString(auth.getBytes("UTF-8"));
+		this.authCredentials = DatatypeConverter.printBase64Binary(auth.getBytes("UTF-8"));
 	}
 	
 	public void setRequest(Request request) {

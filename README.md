@@ -3,14 +3,14 @@
 Sdk for Gerencianet Pagamentos' API.
 For more informations about parameters and values, please refer to [Gerencianet](http://gerencianet.com.br) documentation.
 
-**Em caso de dúvidas, você pode verificar a [Documentação](https://docs.gerencianet.com.br) da API na Gerencianet e, necessitando de mais detalhes ou informações, entre em contato com nossa consultoria técnica, via nossos [Canais de Comunicação](https://gerencianet.com.br/central-de-ajuda).**
+**Em caso de dï¿½vidas, vocï¿½ pode verificar a [Documentaï¿½ï¿½o](https://docs.gerencianet.com.br) da API na Gerencianet e, necessitando de mais detalhes ou informaï¿½ï¿½es, entre em contato com nossa consultoria tï¿½cnica, via nossos [Canais de Comunicaï¿½ï¿½o](https://gerencianet.com.br/central-de-ajuda).**
 
 
 [![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-java.svg?branch=master)](https://travis-ci.org/gerencianet/gn-api-sdk-java)
 [![Coverage Status](https://coveralls.io/repos/github/gerencianet/gn-api-sdk-java/badge.svg?branch=master)](https://coveralls.io/github/gerencianet/gn-api-sdk-java?branch=master)
 
 ## Requirements
-* Java >= 8.0
+* Java >= 7.0
 
 ## Getting started
 Require the module and packages:
