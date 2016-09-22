@@ -3,14 +3,34 @@
 Sdk for Gerencianet Pagamentos' API.
 For more informations about parameters and values, please refer to [Gerencianet](http://gerencianet.com.br) documentation.
 
-**Em caso de d�vidas, voc� pode verificar a [Documenta��o](https://docs.gerencianet.com.br) da API na Gerencianet e, necessitando de mais detalhes ou informa��es, entre em contato com nossa consultoria t�cnica, via nossos [Canais de Comunica��o](https://gerencianet.com.br/central-de-ajuda).**
+**Em caso de dúvidas, você pode verificar a [Documentação](https://docs.gerencianet.com.br) da API na Gerencianet e, necessitando de mais detalhes ou informações, entre em contato com nossa consultoria técnica, via nossos [Canais de Comunicação](https://gerencianet.com.br/central-de-ajuda).**
 
 
 [![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-java.svg?branch=master)](https://travis-ci.org/gerencianet/gn-api-sdk-java)
 [![Coverage Status](https://coveralls.io/repos/github/gerencianet/gn-api-sdk-java/badge.svg?branch=master)](https://coveralls.io/github/gerencianet/gn-api-sdk-java?branch=master)
+[![Maven Central](https://img.shields.io/maven-central/v/br.com.gerencianet.gnsdk/gn-api-sdk-java.svg)]
+(http://search.maven.org/#search|ga|1|g:"br.com.gerencianet.gnsdk" AND a:"gn-api-sdk-java")
 
 ## Requirements
 * Java >= 7.0
+
+## Installation
+
+**Via gradle:**
+
+```gradle
+compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.1.0'
+```
+
+**Via maven:**
+
+```xml
+<dependency>
+    <groupId>br.com.gerencianet.gnsdk</groupId>
+    <artifactId>gn-api-sdk-java</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
 
 ## Getting started
 Require the module and packages:
