@@ -29,7 +29,7 @@ public class GerencianetException extends Exception {
 				message = response.get("error_description").toString();
 			
 			if(response.has("code"))
-				this.code = (Integer) response.get("code");
+				this.code = Integer.parseInt(response.get("code").toString());
 			this.error = response.get("error").toString();
 			this.errorDescription = message;
 		}

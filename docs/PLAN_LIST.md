@@ -41,33 +41,19 @@ public class TesteGN
 ```
 
 If the filters are correct, the response will be an array like this:
-```java
+```json
+{
+	"code":200,
+	"data":
+	[
+		{	
+			"repeats":2,
+			"name":"My plan",
+			"created_at":"2016-09-27",
+			"interval":2,
+			"plan_id":2262
+		}
+	]
+}
 
-Array
-(
-    [code] => 200
-    [data] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [name] => My plan
-                    [interval] => 12
-                    [repeats] => 2
-                    [created_at] => 2015-07-22T12:33:06.000Z
-                    [updated_at] => 2015-07-22T12:33:06.000Z
-                )
-            [1] => Array
-                (
-                    [id] => 2
-                    [name] => My other plan
-                    [interval] => 1
-                    [repeats] => 12
-                    [created_at] => 2014-12-22T12:33:06.000Z
-                    [updated_at] => 2014-12-22T12:33:06.000Z
-                )
-
-        )
-
-)
 ```

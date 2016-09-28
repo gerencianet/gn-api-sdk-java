@@ -55,15 +55,16 @@ public class TesteGN
 		params.put("token", token)
 		
 		try {
-			Gerencianet gn = new Gerencianet(options);
-			notification = gn.call("getNotification", params, new JSONObject());
-		}catch (GerencianetException e){
-			System.out.println(e.getCode());
-			System.out.println(e.getError());
-			System.out.println(e.getErrorDescription());
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+            Gerencianet gn = new Gerencianet(options);
+            JSONObject notification = gn.call("getNotification", params, new JSONObject());
+            System.out.println(notification);
+        }catch (GerencianetException e){
+            System.out.println(e.getCode());
+            System.out.println(e.getError());
+            System.out.println(e.getErrorDescription());
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 	}
 }
 

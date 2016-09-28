@@ -100,6 +100,8 @@ To run the test suite with coverage:
 ```
 mvn clean test jacoco:report
 ```
+## Running examples
+To run some existing examples follow the steps described at [gn-api-sdk-java-examples](https://github.com/gerencianet/gn-api-sdk-java-examples).
 
 ## Additional Documentation
 
