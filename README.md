@@ -19,16 +19,16 @@ For more informations about parameters and values, please refer to [Gerencianet]
 **Via gradle:**
 
 ```gradle
-compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.1.0'
+compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.1'
 ```
 
 **Via maven:**
 
 ```xml
 <dependency>
-    <groupId>br.com.gerencianet.gnsdk</groupId>
-    <artifactId>gn-api-sdk-java</artifactId>
-    <version>0.1.0</version>
+    <groupId>br.com.gerencianet.gnsdk</groupId>
+    <artifactId>gn-api-sdk-java</artifactId>
+    <version>0.2.1</version>
 </dependency>
 ```
 
