@@ -105,44 +105,7 @@ To run some existing examples follow the steps described at [gn-api-sdk-java-exa
 
 ## Additional Documentation
 
-#### Charges
-- [Creating charges](/docs/CHARGE.md)
-- [Paying a charge](/docs/CHARGE_PAYMENT.md)
-- [Detailing charges](/docs/CHARGE_DETAIL.md)
-- [Updating informations](/docs/CHARGE_UPDATE.md)
-- [Resending billet](/docs/RESEND_BILLET.md)
-- [Adding information to charge's history](/docs/CHARGE_CREATE_HISTORY.md)
-
-#### Carnets
-
-- [Creating carnets](/docs/CARNET.md)
-- [Detailing carnets](/docs/CARNET_DETAIL.md)
-- [Updating informations](/docs/CARNET_UPDATE.md)
-- [Resending the carnet](/docs/CARNET_RESEND.md)
-- [Resending carnet parcel](/docs/CARNET_RESEND_PARCEL.md)
-- [Adding information to carnet's history](/docs/CARNET_CREATE_HISTORY.md)
-- [Canceling the carnet](/docs/CARNET_CANCEL.md)
-- [Canceling carnet parcel](/docs/CARNET_CANCEL_PARCEL.md)
-
-#### Subscriptions
-
-- [Creating subscriptions](/docs/SUBSCRIPTION.md)
-- [Setting the payment method](/docs/SUBSCRIPTION_PAYMENT.md)
-- [Detailing subscriptions](/docs/SUBSCRIPTION_DETAIL.md)
-- [Updating informations](/docs/SUBSCRIPTION_UPDATE.md)
-- [Listing plans](/docs/PLAN_LIST.md)
-
-#### Marketplace
-
-- [Creating a marketplace](/docs/MARKETPLACE.md)
-
-#### Notifications
-
-- [Getting notifications](/docs/NOTIFICATION.md)
-
-#### Payments
-
-- [Getting the payment data](/docs/PAYMENT_DATA.md)
+The full documentation with all available endpoints is in https://dev.gerencianet.com.br/.
 
 ## Changelog
 
