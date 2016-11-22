@@ -14,12 +14,16 @@ For more informations about parameters and values, please refer to [Gerencianet]
 ## Requirements
 * Java >= 7.0
 
+## Tested with
+```
+java  7.0 and 8.0
+```
 ## Installation
 
 **Via gradle:**
 
 ```gradle
-compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.1'
+compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.2'
 ```
 
 **Via maven:**
@@ -28,7 +32,7 @@ compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.1'
 <dependency>
     <groupId>br.com.gerencianet.gnsdk</groupId>
     <artifactId>gn-api-sdk-java</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
 </dependency>
 ```
 

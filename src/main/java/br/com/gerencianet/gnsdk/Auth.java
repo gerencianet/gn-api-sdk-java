@@ -28,12 +28,16 @@ public class Auth {
 		if(!credentials.has("clientId") || !credentials.has("clientSecret")){
 			throw new Exception("Client_Id or Client_Secret not found");
 		}
-	
+		
 		String url = credentials.getString("baseUri") + authorizeRoute;
 		URL link = new URL(url);
 		HttpURLConnection client = (HttpURLConnection) link.openConnection();
 		
 		this.request = new Request(method, client);
+		
+		if(credentials.has("partnerToken")){
+			this.request.addHeader("partner-token", credentials.getString("partnerToken"));
+		}
 		
 		authBody = new JSONObject();
 		authBody.put("grant_type", "client_credentials");

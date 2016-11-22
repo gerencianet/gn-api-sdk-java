@@ -8,7 +8,7 @@ import org.json.JSONObject;
  *
  */
 public class Config {
-	private final static String version = "0.2.1";
+	private final static String version = "0.2.2";
 	private JSONObject conf = new JSONObject();
 	private JSONObject endpoints = new JSONObject();
 	private JSONObject urls = new JSONObject();
@@ -49,6 +49,10 @@ public class Config {
 			this.conf.put("clientId", options.getString("client_id"));
 		if(options.has("client_secret"))
 			this.conf.put("clientSecret", options.getString("client_secret"));
+		
+		if(options.has("partner_token"))
+			this.conf.put("partnerToken", options.getString("partner_token"));
+		
 		if(options.has("url")){
 			this.conf.put("baseUri", options.getString("url"));
 		}	

@@ -66,6 +66,8 @@ public class AuthTest {
     {
     	when(credentials.has("clientId")).thenReturn(true);
     	when(credentials.has("clientSecret")).thenReturn(true);
+    	when(credentials.has("partnerToken")).thenReturn(true);
+    	when(credentials.getString("partnerToken")).thenReturn("teste");
     	when(credentials.getString("baseUri")).thenReturn("https://sandbox.gerencianet.com.br");
 		authenticator = new Auth(credentials, "post", "v1/authorize");
     }
@@ -84,7 +86,7 @@ public class AuthTest {
 			when(requester.send(authenticator.getAuthBody())).thenReturn(success);
 			authenticator.setRequest(requester);
 			authenticator.authorize();
-			verify(requester, times(1)).addHeader("Authorization", "Basic " + authenticator.getAuthCredentials());;
+			verify(requester, times(1)).addHeader("Authorization", "Basic " + authenticator.getAuthCredentials());
 			verify(requester, times(1)).send(authenticator.getAuthBody());
 			Assert.assertTrue(authenticator.getAccessToken().equals("token"));
 			Assert.assertTrue(authenticator.getExpires().compareTo(expectedBefore) > 0);

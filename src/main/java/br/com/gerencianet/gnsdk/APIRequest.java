@@ -34,6 +34,11 @@ public class APIRequest {
 		HttpURLConnection client = (HttpURLConnection) link.openConnection();
 		
 		this.requester = new Request(method, client);
+		
+		if(config.getOptions().has("partnerToken")){
+			this.requester.addHeader("partner-token", config.getOptions().getString("partnerToken"));
+		}
+		
 		this.body = body;
 	}
 	

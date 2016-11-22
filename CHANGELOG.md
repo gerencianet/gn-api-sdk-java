@@ -1,6 +1,10 @@
 # 0.2.1
 
-- Fix: SDK version sent at request body.
+- Added: forward `partner-token` header
+
+# 0.2.1
+
+- Fix: SDK version sent at request body
 
 # 0.2.0
 

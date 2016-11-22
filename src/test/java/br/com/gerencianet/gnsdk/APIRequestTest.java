@@ -120,6 +120,8 @@ public class APIRequestTest {
 		JSONObject credentials = mock(JSONObject.class);
 		when(credentials.has("clientId")).thenReturn(true);
 		when(credentials.has("clientSecret")).thenReturn(true);
+		when(credentials.has("partnerToken")).thenReturn(true);
+		when(credentials.getString("partnerToken")).thenReturn("teste");
 		when(credentials.getString("baseUri")).thenReturn("https://sandbox.gerencianet.com.br");
 		when(config.getEndpoints()).thenReturn(endpoints);
 		when(config.getOptions()).thenReturn(credentials);

@@ -67,6 +67,7 @@ public class ConfigTest {
 		JSONObject options = new JSONObject();
 		options.put("client_id", "123");
 		options.put("client_secret", "456");
+		options.put("partner_token", "ptteste");
 		options.put("debug", true);
 		options.put("url", "http://filipegnapi.gerencianet.com.br:4400");
 
@@ -80,12 +81,14 @@ public class ConfigTest {
 			assertTrue(config.has("clientId"));
 			assertTrue(config.has("clientSecret"));
 			assertTrue(config.has("baseUri"));
+			assertTrue(config.has("partnerToken"));
 			
 			assertTrue(config.get("sandbox").equals(false));
 			assertTrue(config.get("debug").equals(true));
 			assertTrue(config.get("clientId").equals("123"));
 			assertTrue(config.get("clientSecret").equals("456"));
 			assertTrue(config.get("baseUri").equals("http://filipegnapi.gerencianet.com.br:4400"));
+			assertTrue(config.get("partnerToken").equals("ptteste"));
 		} catch (IOException e) {
 			fail("The file config.json doesn't exist or is not in the right fouder.");
 		}
