@@ -1,3 +1,8 @@
+# 0.2.3
+
+- Added: new endpoint (update plan)
+- Added: new endpoint (create subscription history)
+
 # 0.2.2
 
 - Added: forward `partner-token` header

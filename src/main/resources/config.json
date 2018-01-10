@@ -119,6 +119,22 @@
     "linkCharge": {
       "route": "/v1/charge/:id/link",
       "method": "post"
+    },
+    "chargeLink": {
+      "route": "/v1/charge/:id/link",
+      "method": "post"
+    },
+    "updateChargeLink": {
+      "route": "/v1/charge/:id/link",
+      "method": "put"
+    },
+    "updatePlan": {
+      "route": "/v1/plan/:id",
+      "method": "put"
+    },
+    "createSubscriptionHistory": {
+      "route": "/v1/subscription/:id/history",
+      "method": "post"
     }
   }
 }
