@@ -8,8 +8,7 @@ For more informations about parameters and values, please refer to [Gerencianet]
 
 [![Build Status](https://travis-ci.org/gerencianet/gn-api-sdk-java.svg?branch=master)](https://travis-ci.org/gerencianet/gn-api-sdk-java)
 [![Coverage Status](https://coveralls.io/repos/github/gerencianet/gn-api-sdk-java/badge.svg?branch=master)](https://coveralls.io/github/gerencianet/gn-api-sdk-java?branch=master)
-[![Maven Central](https://img.shields.io/maven-central/v/br.com.gerencianet.gnsdk/gn-api-sdk-java.svg)]
-(http://search.maven.org/#search|ga|1|g:"br.com.gerencianet.gnsdk" AND a:"gn-api-sdk-java")
+[![Maven Central](https://img.shields.io/maven-central/v/br.com.gerencianet.gnsdk/gn-api-sdk-java.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22br.com.gerencianet.gnsdk%22%20AND%20a%3A%22gn-api-sdk-java%22)
 
 ## Requirements
 * Java >= 7.0

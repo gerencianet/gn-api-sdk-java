@@ -6,5 +6,5 @@ script:
 after_success:
   - mvn coveralls:report
 jdk:
-  - oraclejdk7
+  - openjdk7
   - oraclejdk8
