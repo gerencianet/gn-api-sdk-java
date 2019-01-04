@@ -22,7 +22,7 @@ java  7.0 and 8.0
 **Via gradle:**
 
 ```gradle
-compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.4'
+compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.5'
 ```
 
 **Via maven:**
@@ -31,7 +31,7 @@ compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:0.2.4'
 <dependency>
     <groupId>br.com.gerencianet.gnsdk</groupId>
     <artifactId>gn-api-sdk-java</artifactId>
-    <version>0.2.4</version>
+    <version>0.2.5</version>
 </dependency>
 ```
 

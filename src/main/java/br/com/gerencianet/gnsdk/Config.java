@@ -8,7 +8,7 @@ import org.json.JSONObject;
  *
  */
 public class Config {
-	private final static String version = "0.2.4";
+	private final static String version = "0.2.5";
 	private JSONObject conf = new JSONObject();
 	private JSONObject endpoints = new JSONObject();
 	private JSONObject urls = new JSONObject();
