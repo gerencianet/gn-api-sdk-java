@@ -1,3 +1,11 @@
+# 1.0.1
+
+- Fix: Error message
+
+# 1.0.0
+
+- Added: API Pix endpoints
+
 # 0.2.6
 
 - Added: new endpoint (one step)

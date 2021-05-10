@@ -85,6 +85,8 @@ public class RequestTest {
 			error.put("code", 500);
 			error.put("error_description", "internal error happenned");
 			error.put("error", "server internal error");
+			error.put("mensagem", "internal error happenned");
+			error.put("nome", "server internal error");
 			InputStream stream = new ByteArrayInputStream(error.toString().getBytes(StandardCharsets.UTF_8));
 			Mockito.when(client.getErrorStream()).thenReturn(stream);
 			
