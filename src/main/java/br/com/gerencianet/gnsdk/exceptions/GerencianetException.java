@@ -36,11 +36,10 @@ public class GerencianetException extends Exception {
 			this.error = response.get("error").toString();
 			this.errorDescription = message;
 
-		} else
-
-		message = response.get("mensagem").toString();
-		this.error = response.get("nome").toString();
-		this.errorDescription = message;
+		} else {
+			this.error = response.get("nome").toString();
+			this.errorDescription = response.get("mensagem").toString();
+		}
 	}
 
 	public String getError() {

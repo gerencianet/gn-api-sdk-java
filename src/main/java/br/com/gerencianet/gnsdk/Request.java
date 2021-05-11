@@ -60,7 +60,7 @@ public class Request {
 			JSONTokener responseTokener = new JSONTokener(responseStream);
 			return new JSONObject(responseTokener);
 		} 
-		else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED ) {
+		else if (responseCode == HttpURLConnection.HTTP_UNAUTHORIZED || responseCode == HttpURLConnection.HTTP_FORBIDDEN) {
 			throw new AuthorizationException();
 		} else {
 			InputStream responseStream = client.getErrorStream();

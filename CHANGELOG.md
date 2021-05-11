@@ -1,3 +1,7 @@
+# 1.0.2
+
+- Fix: Error message
+
 # 1.0.1
 
 - Fix: Error message
