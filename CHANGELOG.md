@@ -1,3 +1,10 @@
+# 2.0.0
+- Added: API Open Finance
+- Added: API Pagamentos
+- Added: new endpoints of API Pix 
+- Updated: PixSend example
+- Updated: rename "pix_cert" to "certificate" in credentials.json
+
 # 1.0.2
 
 - Fix: Error message

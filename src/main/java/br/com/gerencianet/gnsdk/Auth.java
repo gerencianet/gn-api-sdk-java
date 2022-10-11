@@ -31,8 +31,8 @@ public class Auth {
 			throw new Exception("Client_Id or Client_Secret not found");
 		}
 
-		if (credentials.has("certificadoPix")) {
-			System.setProperty("javax.net.ssl.keyStore", credentials.getString("certificadoPix"));
+		if (credentials.has("certificate")) {
+			System.setProperty("javax.net.ssl.keyStore", credentials.getString("certificate"));
 		}
 
 		String url = credentials.getString("baseUri") + authorizeRoute;

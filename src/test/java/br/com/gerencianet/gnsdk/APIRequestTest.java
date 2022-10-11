@@ -125,7 +125,7 @@ public class APIRequestTest {
 		when(credentials.getString("baseUri")).thenReturn("https://sandbox.gerencianet.com.br");
 		when(config.getEndpoints()).thenReturn(endpoints);
 		when(config.getOptions()).thenReturn(credentials);
-		apiRequester = new APIRequest("post", "/v1/charge", body, config);
+		apiRequester = new APIRequest("post", "/v1/charge", body, authorize, config);
 		Assert.assertTrue(apiRequester.getRequester() != null);
 		Assert.assertTrue(apiRequester.getBody().has("item"));
 		Assert.assertTrue(apiRequester.getBody().getInt("item") == 12);

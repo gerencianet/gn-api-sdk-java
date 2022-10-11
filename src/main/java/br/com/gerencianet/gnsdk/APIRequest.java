@@ -12,8 +12,9 @@ import br.com.gerencianet.gnsdk.exceptions.GerencianetException;
 
 /**
  * This class instance a Auth Object, to authenticate client credentials in
- * Gerencianet API. After client's credentials are validated a client Object
- * send a given request body to a given endpoint throw a given route.
+ * Gerencianet API. After client's credentials
+ * are validated a client Object send a given request body to a given endpoint
+ * throw a given route.
  * 
  * @author Filipe Mata
  *
@@ -24,10 +25,10 @@ public class APIRequest {
 	private String route;
 	private JSONObject body;
 
-	public APIRequest(String method, String route, JSONObject body, Config config) throws Exception {
+	public APIRequest(String method, String route, JSONObject body, JSONObject auth, Config config) throws Exception {
 		this.route = route;
-		String authenticateRoute = config.getEndpoints().getJSONObject("authorize").getString("route");
-		String authenticateMethod = config.getEndpoints().getJSONObject("authorize").getString("method");
+		String authenticateRoute = auth.getString("route");
+		String authenticateMethod = auth.getString("method");
 		this.authenticator = new Auth(config.getOptions(), authenticateMethod, authenticateRoute);
 
 		String url = config.getOptions().getString("baseUri") + route;
@@ -42,6 +43,7 @@ public class APIRequest {
 
 		if (config.getOptions().has("headers")) {
 			this.requester.addHeader("x-skip-mtls-checking", config.getOptions().getString("headers"));
+			this.requester.addHeader("x-idempotency-key", config.getOptions().getString("headers"));
 		}
 
 		this.body = body;
@@ -56,16 +58,28 @@ public class APIRequest {
 	public JSONObject send() throws AuthorizationException, GerencianetException, IOException {
 		Date expiredDate = this.authenticator.getExpires();
 		if (this.authenticator.getExpires() == null || expiredDate.compareTo(new Date()) <= 0) {
-
 			this.authenticator.authorize();
 		}
-
 		this.requester.addHeader("Authorization", "Bearer " + this.authenticator.getAccessToken());
 		try {
 			return this.requester.send(this.body);
 		} catch (AuthorizationException e) {
 			this.authenticator.authorize();
 			return this.requester.send(body);
+		}
+	}
+
+	public String sendString() throws AuthorizationException, GerencianetException, IOException {
+		Date expiredDate = this.authenticator.getExpires();
+		if (this.authenticator.getExpires() == null || expiredDate.compareTo(new Date()) <= 0) {
+			this.authenticator.authorize();
+		}
+		this.requester.addHeader("Authorization", "Bearer " + this.authenticator.getAccessToken());
+		try {
+			return this.requester.sendString(this.body);
+		} catch (AuthorizationException e) {
+			this.authenticator.authorize();
+			return this.requester.sendString(body);
 		}
 	}
 

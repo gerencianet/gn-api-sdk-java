@@ -1,5 +1,6 @@
 package br.com.gerencianet.gnsdk.exceptions;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -17,8 +18,7 @@ public class GerencianetException extends Exception {
 
 	public GerencianetException(JSONObject response) {
 		String message = "";
-		if (response.has("error_description")) 
-		{
+		if (response.has("error_description")) {
 			if (response.get("error_description").getClass().getSimpleName().equals("JSONObject")) {
 				JSONObject errorDescription = response.getJSONObject("error_description");
 				if (errorDescription.has("message"))
@@ -32,13 +32,26 @@ public class GerencianetException extends Exception {
 				message = response.get("error_description").toString();
 
 			if (response.has("code"))
-			this.code = Integer.parseInt(response.get("code").toString());
+				this.code = Integer.parseInt(response.get("code").toString());
 			this.error = response.get("error").toString();
 			this.errorDescription = message;
 
-		} else {
+		} else if (response.has("nome")) {
 			this.error = response.get("nome").toString();
 			this.errorDescription = response.get("mensagem").toString();
+		} else if (response.has("violacoes")) {
+			if (response.get("violacoes").getClass().getSimpleName().equals("JSONArray")) {
+				JSONArray violacoes = response.getJSONArray("violacoes");
+				for (int i = 0; i < violacoes.length(); i++) {
+					JSONObject json = violacoes.getJSONObject(i);
+					if (json.has("razao")) {
+						this.error = json.get("razao").toString();
+						this.errorDescription = json.get("propriedade").toString();
+					}
+				}
+			}
+		} else {
+			System.out.println(response);
 		}
 	}
 

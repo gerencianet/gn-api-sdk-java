@@ -22,7 +22,7 @@ java  7.0 and 8.0
 **Via gradle:**
 
 ```gradle
-compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:1.0.2'
+compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:2.0.0'
 ```
 
 **Via maven:**
@@ -31,7 +31,7 @@ compile 'br.com.gerencianet.gnsdk:gn-api-sdk-java:1.0.2'
 <dependency>
     <groupId>br.com.gerencianet.gnsdk</groupId>
     <artifactId>gn-api-sdk-java</artifactId>
-    <version>1.0.2</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
@@ -60,7 +60,7 @@ Instantiate the module passing using your client_id, client_secret and sandbox e
 JSONObject options = new JSONObject();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
-options.put("pix_cert", "./certs/developmentCertificate.p12");
+options.put("certificate", "./certs/developmentCertificate.p12");
 options.put("sandbox", true);
 
 Gerencianet gn = new Gerencianet($options);
@@ -71,7 +71,7 @@ Or
 Map<String, Object> options = new HashMap<String, Object>();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
-options.put("pix_cert", "./certs/developmentCertificate.p12");
+options.put("certificate", "./certs/developmentCertificate.p12");
 options.put("sandbox", true);
 
 Gerencianet gn = new Gerencianet($options);
@@ -83,7 +83,7 @@ To change the environment to production, just set the third sandbox to false:
 JSONObject options = new JSONObject();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
-options.put("pix_cert", "./certs/productionCertificate.p12");
+options.put("certificate", "./certs/productionCertificate.p12");
 options.put("sandbox", false);
 
 Gerencianet gn = new Gerencianet($options);
@@ -94,7 +94,7 @@ Or
 Map<String, Object> options = new HashMap<String, Object>();
 options.put("client_id", "client_id");
 options.put("client_secret", "client_secret");
-options.put("pix_cert", "./certs/productionCertificate.p12");
+options.put("certificate", "./certs/productionCertificate.p12");
 options.put("sandbox", false);
 
 Gerencianet gn = new Gerencianet($options);
