@@ -143,7 +143,7 @@ public class EndpointsTest {
 		Mockito.when(config.getOptions()).thenReturn(options);
 		JSONObject body = mock(JSONObject.class);
 		
-		endpoints = new Endpoints(config);
+		endpoints = new Endpoints(config, apiRequester);
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("id", "1");
 		params.put("parcel", "1");
@@ -176,7 +176,7 @@ public class EndpointsTest {
 		Mockito.when(config.getEndpoints()).thenReturn(ep);
 		Mockito.when(config.getOptions()).thenReturn(options);
 
-		endpoints = new Endpoints(config);
+		endpoints = new Endpoints(config, apiRequester);
 		HashMap<String, String> params = new HashMap<String, String>();
 		params.put("id", "1");
 		try
